@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Statistics Calculator</h1>
+      <h2>
+        Provide your values, separated by a comma with no spaces, in the below
+        text box. (i.e. 100,200,300)
+      </h2>
+      <form>
+      <textarea id="uservalues" name="uservalues" rows="4" cols="50" placeholder="Enter Values Here...">
+      </textarea>
+      <br/>
+      <input type="submit" value="Calculate"/>
+      </form>
     </div>
   );
 }
