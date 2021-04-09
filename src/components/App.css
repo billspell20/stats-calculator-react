@@ -44,6 +44,7 @@ header {
 .btn-primary{
   background-color: #800a4ea8 !important;
   border-color: #800a4ea8 !important;
+  width: 175px;
 }
 
 footer {

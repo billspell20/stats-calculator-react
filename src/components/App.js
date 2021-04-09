@@ -18,6 +18,9 @@ function App() {
       <br/>
       <Button type='submit'>Calculate</Button>
       </form>
+      <br/>
+      <Button onClick={refresh}>Reset</Button>
+      <br/>
       <Footer />
     </div>
   );
@@ -28,6 +31,9 @@ function App() {
     e.preventDefault();
     var textarea = document.getElementById('uservalues');
     console.log(textarea.value.split(','));
+  }
+  function refresh(){
+    window.location.reload("Refresh")
   }
 }
 
