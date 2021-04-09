@@ -1,19 +1,24 @@
 import './App.css';
+import Header from "./Header";
+import Footer from "./Footer";
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>Statistics Calculator</h1>
-      <h2>
+      <Header />
+      <h2 id="introtext">
         Provide your values, separated by a comma with no spaces, in the below
         text box. (i.e. 100,200,300)
       </h2>
       <form>
-      <textarea id="uservalues" name="uservalues" rows="4" cols="50" placeholder="Enter Values Here..." onKeyUp={handleInput}>
+      <textarea id="uservalues" name="uservalues" rows="5" cols="70" placeholder="Enter values here" onKeyUp={handleInput}>
       </textarea>
       <br/>
-      <input type="submit" value="Calculate"/>
+      <Button type='submit'>Calculate</Button>
       </form>
+      <Footer />
     </div>
   );
   function handleInput(e) {
