@@ -1,10 +1,14 @@
+import React, { useState } from "react";
 import './App.css';
 import Header from "./Header";
 import Footer from "./Footer";
+import Bodycontent from "./Bodycontent"
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+  const [uservalue, setvalues] = useState([]);
+
   return (
     <div className="App">
       <Header />
@@ -21,6 +25,8 @@ function App() {
       <br/>
       <Button onClick={refresh}>Reset</Button>
       <br/>
+      <Bodycontent />
+      <p>{uservalue}</p>
       <Footer />
     </div>
   );
@@ -30,7 +36,12 @@ function App() {
   function getValues(e) {
     e.preventDefault();
     var textarea = document.getElementById('uservalues');
-    console.log(textarea.value.split(','));
+    var userarray = textarea.value.split(',');
+    console.log(userarray)
+    setvalues(uservalue => {
+      console.log("test")
+      return userarray;
+    });
   }
   function refresh(){
     window.location.reload("Refresh")
