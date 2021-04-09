@@ -12,7 +12,7 @@ function App() {
         Provide your values, separated by a comma with no spaces, in the below
         text box. (i.e. 100,200,300)
       </h2>
-      <form>
+      <form onSubmit={getValues}>
       <textarea id="uservalues" name="uservalues" rows="5" cols="70" placeholder="Enter values here" onKeyUp={handleInput}>
       </textarea>
       <br/>
@@ -23,6 +23,11 @@ function App() {
   );
   function handleInput(e) {
       e.currentTarget.value = e.currentTarget.value.replace(/[^0-9.,-]/g, '');
+  }
+  function getValues(e) {
+    e.preventDefault();
+    var textarea = document.getElementById('uservalues');
+    console.log(textarea.value.split(','));
   }
 }
 
