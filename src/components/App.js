@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import './App.css';
 import Header from "./Header";
 import Footer from "./Footer";
-import Bodycontent from "./Bodycontent"
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -25,8 +24,7 @@ function App() {
       <br/>
       <Button onClick={refresh}>Reset</Button>
       <br/>
-      <Bodycontent />
-      <p>{uservalue}</p>
+      <p>Sum: {uservalue}</p>
       <Footer />
     </div>
   );
@@ -39,8 +37,11 @@ function App() {
     var userarray = textarea.value.split(',');
     console.log(userarray)
     setvalues(uservalue => {
-      console.log("test")
-      return userarray;
+      var sum = 0;
+      for (var i=0; i<userarray.length; i++) {
+        sum += parseFloat(userarray[i]);
+      }
+      return sum;
     });
   }
   function refresh(){
