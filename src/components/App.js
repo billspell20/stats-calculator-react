@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   const [sumvalue, setsumvalues] = useState([]);
   const [meanvalue, setmeanvalues] = useState([]);
+  const [medianvalue, setmedianvalues] = useState([]);
 
   return (
     <div className="App">
@@ -26,6 +27,7 @@ function App() {
       <Button onClick={refresh}>Reset</Button>
       <br/>
       <p>Mean: {meanvalue}</p>
+      <p>Median: {medianvalue}</p>
       <p>Sum: {sumvalue}</p>
       <Footer />
     </div>
@@ -52,6 +54,10 @@ function App() {
       var mean = total / userarray.length;
       }
       return mean;
+    });
+    setmedianvalues(medianvalue => {
+      var median = 0;
+      return median;
     });
   }
   function refresh(){
