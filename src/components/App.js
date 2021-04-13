@@ -6,7 +6,8 @@ import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const [uservalue, setvalues] = useState([]);
+  const [sumvalue, setsumvalues] = useState([]);
+  const [meanvalue, setmeanvalues] = useState([]);
 
   return (
     <div className="App">
@@ -24,7 +25,8 @@ function App() {
       <br/>
       <Button onClick={refresh}>Reset</Button>
       <br/>
-      <p>Sum: {uservalue}</p>
+      <p>Mean: {meanvalue}</p>
+      <p>Sum: {sumvalue}</p>
       <Footer />
     </div>
   );
@@ -36,12 +38,20 @@ function App() {
     var textarea = document.getElementById('uservalues');
     var userarray = textarea.value.split(',');
     console.log(userarray)
-    setvalues(uservalue => {
+    setsumvalues(sumvalue => {
       var sum = 0;
       for (var i=0; i<userarray.length; i++) {
         sum += parseFloat(userarray[i]);
       }
       return sum;
+    });
+    setmeanvalues(meanvalue => {
+      var total = 0;
+      for(var i = 0; i < userarray.length; i++) {
+        total += parseFloat(userarray[i]);
+      var mean = total / userarray.length;
+      }
+      return mean;
     });
   }
   function refresh(){
