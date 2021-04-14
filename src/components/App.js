@@ -56,16 +56,19 @@ function App() {
       return mean;
     });
     setmedianvalues(medianvalue => {
-      if(userarray.length === 0) return 0;
-      userarray.sort(function(a,b){
+      if (userarray.length === 0) return 0;
+      var medianarray =[...userarray]
+      medianarray.sort(function(a,b){
         return a-b;
       });
-      var half = Math.floor(userarray.length / 2);
-      if (userarray.length % 2){
-        var median = userarray[half];
+      console.log(medianarray)
+      var half = Math.floor(medianarray.length / 2);
+      console.log(half)
+      if (medianarray.length % 2){
+        var median = medianarray[half];
       }
-      else{
-        median = (userarray[half - 1] + userarray[half]) / 2.0;
+      else {
+        median = (parseFloat((medianarray[half - 1])) + parseFloat(medianarray[half])) / 2.0;
       }
       return median;
     });
