@@ -13,6 +13,7 @@ function App() {
   const [countvalue, setcountvalue] = useState([]);
   const [maxvalue, setmaxvalue] = useState([]);
   const [minvalue, setminvalue] = useState([]);
+  const [rangevalue, setrangevalue] = useState([]);
 
 
   return (
@@ -38,6 +39,7 @@ function App() {
       <p>Count: {countvalue}</p>
       <p>Minimum: {minvalue}</p>
       <p>Maximum: {maxvalue}</p>
+      <p>Range: {rangevalue}</p>
       <br/>
       <Footer />
     </div>
@@ -118,7 +120,13 @@ function App() {
       });
       return maxarray[(maxarray.length-1)];
     });
-
+    setrangevalue(rangevalue => {
+      var rangearray =[...userarray]
+      rangearray.sort(function(a,b){
+        return a-b;
+      });
+      return rangearray[(rangearray.length-1)] - rangearray[0];
+    });
 
 
   }
