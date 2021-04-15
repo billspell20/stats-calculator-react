@@ -9,6 +9,11 @@ function App() {
   const [sumvalue, setsumvalues] = useState([]);
   const [meanvalue, setmeanvalues] = useState([]);
   const [medianvalue, setmedianvalues] = useState([]);
+  const [modevalue, setmodevalue] = useState([]);
+  const [countvalue, setcountvalue] = useState([]);
+  const [maxvalue, setmaxvalue] = useState([]);
+  const [minvalue, setminvalue] = useState([]);
+
 
   return (
     <div className="App">
@@ -29,6 +34,11 @@ function App() {
       <p>Mean: {meanvalue}</p>
       <p>Median: {medianvalue}</p>
       <p>Sum: {sumvalue}</p>
+      <p>Mode: {modevalue}</p> {/*ToDo: eed to handle ties, optional-add count of mode*/}
+      <p>Count: {countvalue}</p>
+      <p>Minimum: {minvalue}</p>
+      <p>Maximum: {maxvalue}</p>
+      <br/>
       <Footer />
     </div>
   );
@@ -72,6 +82,45 @@ function App() {
       }
       return median;
     });
+    setmodevalue(modevalue => {
+      var map = {};
+      for (var i=0; i<userarray.length; i++) {
+          if (map[userarray[i]] === undefined) {
+              map[userarray[i]] = 0;
+          }
+          map[userarray[i]] += 1;
+      }
+      var greatestFreq = 0;
+      var mode;
+      for (var prop in map) {
+          if (map[prop] > greatestFreq) {
+              greatestFreq = map[prop];
+              mode = prop;
+          }
+      }
+      return mode;
+    });
+    setcountvalue(countvalue => {
+      var count = userarray.length
+      return count;
+    });
+    setminvalue(minvalue => {
+      var minarray =[...userarray]
+      minarray.sort(function(a,b){
+        return a-b;
+      });
+      return minarray[0];
+    });
+    setmaxvalue(maxvalue => {
+      var maxarray =[...userarray]
+      maxarray.sort(function(a,b){
+        return a-b;
+      });
+      return maxarray[(maxarray.length-1)];
+    });
+
+
+
   }
   function refresh(){
     window.location.reload("Refresh")
