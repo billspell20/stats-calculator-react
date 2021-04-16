@@ -14,6 +14,7 @@ function App() {
   const [maxvalue, setmaxvalue] = useState([]);
   const [minvalue, setminvalue] = useState([]);
   const [rangevalue, setrangevalue] = useState([]);
+  const [geomeanvalue, setgeomean] = useState([]);
 
 
   return (
@@ -40,6 +41,7 @@ function App() {
       <p>Minimum: {minvalue}</p>
       <p>Maximum: {maxvalue}</p>
       <p>Range: {rangevalue}</p>
+      <p>Geometric Mean: {geomeanvalue}</p>
       <br/>
       <Footer />
     </div>
@@ -140,6 +142,14 @@ function App() {
       });
       return rangearray[(rangearray.length-1)] - rangearray[0];
     });
+    setgeomean(geomeanvalue => {
+      var product = 1.0;
+      for (var i=0; i<userarray.length; i++) {
+        product = product * userarray[i];
+      }
+      var geomean = Math.pow(product, 1.0 / userarray.length);
+      return geomean
+    })
 
 
   }
