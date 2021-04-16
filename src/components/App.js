@@ -35,7 +35,7 @@ function App() {
       <p>Mean: {meanvalue}</p>
       <p>Median: {medianvalue}</p>
       <p>Sum: {sumvalue}</p>
-      <p>Mode: {modevalue}</p> {/*ToDo: eed to handle ties, optional-add count of mode*/}
+      <p>Mode: {modevalue}</p> 
       <p>Count: {countvalue}</p>
       <p>Minimum: {minvalue}</p>
       <p>Maximum: {maxvalue}</p>
@@ -93,14 +93,27 @@ function App() {
           map[userarray[i]] += 1;
       }
       var greatestFreq = 0;
-      var mode;
+      var returnedmode = "";
+      var greatestFreqArray =[]
       for (var prop in map) {
+          if (map[prop] === greatestFreq) {
+            greatestFreqArray.push(prop);
+          }
           if (map[prop] > greatestFreq) {
+              greatestFreqArray = [];
               greatestFreq = map[prop];
-              mode = prop;
+              greatestFreqArray.push(prop);
           }
       }
-      return mode;
+      console.log(greatestFreqArray)
+      console.log(greatestFreqArray)
+      if (greatestFreq<=1) {
+        returnedmode = "There are no repeated items.";
+      }
+      if (greatestFreq>1) {
+        returnedmode = (greatestFreqArray + " is repeated " + greatestFreq + " times.");
+      };
+      return returnedmode;
     });
     setcountvalue(countvalue => {
       var count = userarray.length
