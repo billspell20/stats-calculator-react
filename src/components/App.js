@@ -35,7 +35,7 @@ function App() {
       <Button type='submit'>Calculate</Button>
       </form>
       <br/>
-      <Button onClick={refresh}>Reset</Button>
+      <Button onClick={refresh} id="reset">Reset</Button>
       <br/>
       <p>Mean: {meanvalue}</p>
       <p>Median: {medianvalue}</p>

@@ -42,15 +42,18 @@ header {
   margin-bottom: 20px;
 }
 
-.btn-primary{
+.btn-primary {
   background-color: #800a4ea8 !important;
   border-color: #800a4ea8 !important;
   width: 175px;
 }
 
+#reset {
+  margin-bottom: 25px;
+}
+
 p {
-  padding: 5px 5px;
-  padding-top: 20px;
+  padding-top: 2px;
   font-size: 13px;
 }
 
