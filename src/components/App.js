@@ -15,6 +15,10 @@ function App() {
   const [minvalue, setminvalue] = useState([]);
   const [rangevalue, setrangevalue] = useState([]);
   const [geomeanvalue, setgeomean] = useState([]);
+  const [stddevvalue, setstddev] = useState([]);
+  const [variancevalue, setvariance] = useState([]);
+  const [samplestddevvalue, setsamplestddev] = useState([]);
+  const [samplevariancevalue, setsamplevariance] = useState([]);
 
 
   return (
@@ -42,6 +46,10 @@ function App() {
       <p>Maximum: {maxvalue}</p>
       <p>Range: {rangevalue}</p>
       <p>Geometric Mean: {geomeanvalue}</p>
+      <p>Standard Deviation: {stddevvalue}</p>
+      <p>Variance: {variancevalue}</p>
+      <p>Sample Standard Deviation: {samplestddevvalue}</p>
+      <p>Sample Variance: {samplevariancevalue}</p>
       <br/>
       <Footer />
     </div>
@@ -129,14 +137,14 @@ function App() {
       return minarray[0];
     });
     setmaxvalue(maxvalue => {
-      var maxarray =[...userarray]
+      var maxarray = [...userarray]
       maxarray.sort(function(a,b){
         return a-b;
       });
       return maxarray[(maxarray.length-1)];
     });
     setrangevalue(rangevalue => {
-      var rangearray =[...userarray]
+      var rangearray = [...userarray]
       rangearray.sort(function(a,b){
         return a-b;
       });
@@ -148,10 +156,44 @@ function App() {
         product = product * userarray[i];
       }
       var geomean = Math.pow(product, 1.0 / userarray.length);
-      return geomean
-    })
-
-
+      return geomean;
+    });
+    setstddev(stddevvalue => {
+      var total = 0;
+      for(var i = 0; i < userarray.length; i++) {
+        total += parseFloat(userarray[i]);
+      var mean = total / userarray.length;
+      }
+      var stddevarray = [...userarray]
+      return Math.sqrt(stddevarray.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / userarray.length)
+    });
+    setvariance(variancevalue => {
+      var total = 0;
+      for(var i = 0; i < userarray.length; i++) {
+        total += parseFloat(userarray[i]);
+      var mean = total / userarray.length;
+      }
+      var variancearray = [...userarray]
+      return (variancearray.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / userarray.length)
+    });
+    setsamplestddev(samplestddevvalue => {
+      var total = 0;
+      for(var i = 0; i < userarray.length; i++) {
+        total += parseFloat(userarray[i]);
+      var mean = total / userarray.length;
+      }
+      var samplestddevarray = [...userarray]
+      return Math.sqrt(samplestddevarray.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / (userarray.length-1))
+    });
+    setsamplevariance(samplevariancevalue => {
+      var total = 0;
+      for(var i = 0; i < userarray.length; i++) {
+        total += parseFloat(userarray[i]);
+      var mean = total / userarray.length;
+      }
+      var samplevariancearray = [...userarray]
+      return (samplevariancearray.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / (userarray.length-1))
+    });
   }
   function refresh(){
     window.location.reload("Refresh")
