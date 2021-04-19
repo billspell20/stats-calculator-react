@@ -20,6 +20,7 @@ body {
   padding: 0 16px;
   background-color: #5ec6e0 !important;
   background-image: url("./diamond-upholstery.png");
+  background-blend-mode: color-dodge;
 }
 
 header {
@@ -33,7 +34,7 @@ header {
 }
 
 #introtext {
-  font-size: 14px;
+  font-size: 16px;
   padding: 16px 16px;
 }
 
@@ -52,9 +53,19 @@ header {
   margin-bottom: 25px;
 }
 
+#wrapper {
+  border: solid 5px #800a4ea8; 
+  box-shadow: 10px;
+  padding: 6px;
+  background-color: #5ec6e0 !important;
+  background-image: url("./diamond-upholstery.png");
+  text-align: left;
+}
+
 p {
   padding-top: 2px;
-  font-size: 13px;
+  padding-left: 40px;
+  font-size: 16px;
 }
 
 footer {
@@ -64,4 +75,12 @@ footer {
   height: 2.5rem;
   font-size: 10px;
   padding-top: 30px;
+}
+
+#footerdiv {
+  background-color: #800a4ea8;
+  color: white;
+  text-align: center;
+  width: 105%;
+  margin: 0px -16px 0px -16px;
 }

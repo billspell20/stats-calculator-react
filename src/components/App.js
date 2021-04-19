@@ -37,6 +37,7 @@ function App() {
       <br/>
       <Button onClick={refresh} id="reset">Reset</Button>
       <br/>
+      <div id="wrapper">
       <p>Mean: {meanvalue}</p>
       <p>Median: {medianvalue}</p>
       <p>Sum: {sumvalue}</p>
@@ -50,6 +51,7 @@ function App() {
       <p>Variance: {variancevalue}</p>
       <p>Sample Standard Deviation: {samplestddevvalue}</p>
       <p>Sample Variance: {samplevariancevalue}</p>
+      </div>
       <br/>
       <Footer />
     </div>
