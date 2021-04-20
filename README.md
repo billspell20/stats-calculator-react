@@ -1,4 +1,4 @@
-Hosted at https://stats-calculator-basic.herokuapp.com/
+Hosted at www.stats-calculator.com
 
 # Getting Started with Create React App
 
