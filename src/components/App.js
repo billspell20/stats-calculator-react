@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './App.css';
 import Header from "./Header";
 import Footer from "./Footer";
+import Info from "./Info";
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -52,6 +53,8 @@ function App() {
       <p>Sample Standard Deviation: {samplestddevvalue}</p>
       <p>Sample Variance: {samplevariancevalue}</p>
       </div>
+      <br/>
+      <Info />
       <br/>
       <Footer />
     </div>
