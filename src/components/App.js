@@ -66,7 +66,6 @@ function App() {
     e.preventDefault();
     var textarea = document.getElementById('uservalues');
     var userarray = textarea.value.split(',');
-    console.log(userarray)
     setsumvalues(sumvalue => {
       var sum = 0;
       for (var i=0; i<userarray.length; i++) {
@@ -88,9 +87,7 @@ function App() {
       medianarray.sort(function(a,b){
         return a-b;
       });
-      console.log(medianarray)
       var half = Math.floor(medianarray.length / 2);
-      console.log(half)
       if (medianarray.length % 2){
         var median = medianarray[half];
       }
@@ -120,8 +117,6 @@ function App() {
               greatestFreqArray.push(prop);
           }
       }
-      console.log(greatestFreqArray)
-      console.log(greatestFreqArray)
       if (greatestFreq<=1) {
         returnedmode = "There are no repeated items.";
       }
