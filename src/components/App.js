@@ -3,7 +3,6 @@ import './App.css';
 import Header from "./Header";
 import Footer from "./Footer";
 import Info from "./Info";
-import Ad from "./Ad";
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -39,7 +38,6 @@ function App() {
       <br/>
       <Button onClick={refresh} id="reset">Reset</Button>
       <br/>
-      <Ad size="728x90" divId="112001868" />    
       <div id="wrapper">
       <p>Mean: {meanvalue}</p>
       <p>Median: {medianvalue}</p>
