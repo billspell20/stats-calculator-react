@@ -38,6 +38,8 @@ function App() {
       <br/>
       <Button onClick={refresh} id="reset">Reset</Button>
       <br/>
+      {<script data-cfasync="false" type="text/javascript" src="https://www.onclickalgo.com/a/display.php?r=4485683"></script>}
+      <br/>
       <div id="wrapper">
       <p>Mean: {meanvalue}</p>
       <p>Median: {medianvalue}</p>
